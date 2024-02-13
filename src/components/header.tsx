@@ -1,5 +1,3 @@
-
-
-export function Header(){
-    return <><h3></h3></>
+export function Header(props:{characterName: string, AC: number, hp: number}){
+    return 
 }
