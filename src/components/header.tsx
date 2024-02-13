@@ -1,5 +1,5 @@
-const name = "name test"
+
 
 export function Header(){
-    return <><h3>{name}</h3></>
+    return <><h3></h3></>
 }
