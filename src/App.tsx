@@ -1,9 +1,10 @@
 import './App.css'
 import { Action } from './components/Action'
+import { Header } from "./components/Header"
 
 function App() {
 
-  return <Action name={"Dash"} description="move you movement speed"/>
+  return Header
 }
 
 export default App
