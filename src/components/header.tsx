@@ -1,7 +1,8 @@
 import { useLocalStorage } from "usehooks-ts";
+import { characterName, AC, maxHP } from "../fakeData"
 
-export function Header(props:{characterName: string, AC: number, HP: number}){
-    const {characterName, AC, HP} = props
-    const [currentHP, setCurrentHP] = useLocalStorage("currentHP", HP)
-    return <><h1>{characterName}</h1><h2>AC {AC} Max HP {HP} currentHP {currentHP}</h2></>
+export function Header(){
+    const [currentHP, setCurrentHP] = useLocalStorage("currentHP", maxHP)
+
+    return <><h1>{characterName}</h1><h2>AC {AC} Max HP {maxHP} currentHP {currentHP}</h2></>
 }
