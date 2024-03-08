@@ -12,7 +12,7 @@ export function Header(){
             <h3 onClick={()=>setCurrentHP(maxHP)}>Max HP {maxHP}</h3>
             <h3 onClick={()=>{if(currentHP > 0)setCurrentHP(currentHP - 1)}}>current HP {currentHP}</h3>
             
-            <>{stats.map((stat, index)=><StatDisplay id={index} value={stat}/>)}</>
+            <>{stats.map((stat, index)=><StatDisplay id={index} value={stat} key={index}/>)}</>
         </>
     )
 }
