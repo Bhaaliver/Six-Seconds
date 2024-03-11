@@ -1,0 +1,6 @@
+.statContainer{
+    display: flex;
+}
+.stat{
+    padding-right: 25px;
+}

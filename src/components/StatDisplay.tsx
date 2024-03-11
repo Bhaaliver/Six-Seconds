@@ -1,7 +1,7 @@
 export function StatDisplay(props:{id: number, value: number}){
     const {id, value} = props
 
-    return <><h1>{value}</h1><h2>{idMap(id)}</h2></>
+    return <div className="stat"><h3>{idMap(id)}</h3><p>{value}</p></div>
 }
 
 function idMap(id: number){
