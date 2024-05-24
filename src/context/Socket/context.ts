@@ -25,13 +25,13 @@ export const socketReducer = (state:IsocketContextState , action:IsocketContextA
     console.log('this message has been recived - action: ' + action.type + ' - payload ', action.payload)
 
     switch(action.type) {
-        case 'update_socket'
+        case 'update_socket':
             return { ...state, socket: action.payload as Socket };
-        case 'update_uid'
+        case 'update_uid':
             return { ...state, uid: action.payload as string };
-        case 'update_users'
+        case 'update_users':
             return { ...state, users: action.payload as string[] };
-        case 'remove_user'
+        case 'remove_user':
             return { ...state, users: state.users.filter((uid) => uid !== (action.payload as string))};
         default:
             return {...state}
