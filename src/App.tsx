@@ -1,10 +1,8 @@
 import './App.css'
-import { Header } from "./components/Header"
-import {Router, RouterProvider} from "@tanstack/react-router"
-
+import { Header } from './components/Header'
 function App() {
   return(
-    <></>
+    <Header></Header>
   )
 }
 

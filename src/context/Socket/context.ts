@@ -1,30 +1,30 @@
-import { createContext } from "react";
-import { Socket } from "socket.io-client"
+import { createContext } from 'react';
+import { Socket } from 'socket.io-client';
 
-export interface IsocketContextState {
-    socket:Socket | undefined;
-    uid:string
+export interface ISocketContextState {
+    socket: Socket | undefined;
+    uid: string;
     users: string[];
 }
-export const defaultSocketContextState:IsocketContextState = {
+
+export const defaultSocketContextState: ISocketContextState = {
     socket: undefined,
     uid: '',
     users: []
+};
+
+export type TSocketContextActions = 'update_socket' | 'update_uid' | 'update_users' | 'remove_user';
+export type TSocketContextPayload = string | string[] | Socket;
+
+export interface ISocketContextActions {
+    type: TSocketContextActions;
+    payload: TSocketContextPayload;
 }
 
-export type TsocketContextAction = 'update_socket' | 'update_users' | 'remove_user' | 'update_uid'
+export const SocketReducer = (state: ISocketContextState, action: ISocketContextActions) => {
+    console.log('Message recieved - Action: ' + action.type + ' - Payload: ', action.payload);
 
-export type TsocketPayload = string | string[] | Socket
-
-export interface IsocketContextActions  {
-    type: TsocketContextAction
-    payload: TsocketPayload
-}
-
-export const socketReducer = (state:IsocketContextState , action:IsocketContextActions) => {
-    console.log('this message has been recived - action: ' + action.type + ' - payload ', action.payload)
-
-    switch(action.type) {
+    switch (action.type) {
         case 'update_socket':
             return { ...state, socket: action.payload as Socket };
         case 'update_uid':
@@ -32,22 +32,23 @@ export const socketReducer = (state:IsocketContextState , action:IsocketContextA
         case 'update_users':
             return { ...state, users: action.payload as string[] };
         case 'remove_user':
-            return { ...state, users: state.users.filter((uid) => uid !== (action.payload as string))};
+            return { ...state, users: state.users.filter((uid) => uid !== (action.payload as string)) };
         default:
-            return {...state}
+            return state;
     }
+};
+
+export interface ISocketContextProps {
+    SocketState: ISocketContextState;
+    SocketDispatch: React.Dispatch<ISocketContextActions>;
 }
 
-export interface iSocketContextProps {
-    SocketState: IsocketContextState
-    SocketDispatch: React.Dispatch<IsocketContextActions>
-}
-
-const SocketContext = createContext<iSocketContextProps>({
+const SocketContext = createContext<ISocketContextProps>({
     SocketState: defaultSocketContextState,
     SocketDispatch: () => {}
 });
 
-export const SocketContextConsumer = SocketContext.Consumer
-export const SocketContextProvider = SocketContext.Provider
+export const SocketContextConsumer = SocketContext.Consumer;
+export const SocketContextProvider = SocketContext.Provider;
 
+export default SocketContext;
