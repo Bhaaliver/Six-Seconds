@@ -1,7 +1,8 @@
 Six Seconds Submission
-1.I want to make this project because when I was little and learning to play DnD turns during combat always took along time
 
-2.You would need a basic understanding of DND fundamentals, if the server was running you would need no technical skills
+1. I want to make this project because when I was little and learning to play DnD turns during combat always took along time
+
+2. You would need a basic understanding of DND fundamentals, if the server was running you would need no technical skills
 
 3. To install you need to run this command git clone https://github.com/Bhaaliver/Six-Seconds-Front-End then cd into it by cd Six-Seconds-Front-End. Lastly you need to have Node JS install and then run this final command to run it in dev mode nom run dev
 
