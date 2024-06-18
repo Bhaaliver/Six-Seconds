@@ -4,7 +4,7 @@ import {Router, RouterProvider} from "@tanstack/react-router"
 
 function App() {
   return(
-    <></>
+    <><Header></Header></>
   )
 }
 
